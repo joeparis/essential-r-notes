@@ -34,3 +34,143 @@ Map labels to "levels".
 |---------|---------|-------------|-------------|
 | Labels: | Placebo | Treatment 1 | Treatment 2 |
 | Levels  | 1       | 2           | 3           |
+
+## Data Structures
+
+### Vectors
+
+Ordered set of items with the same type.
+
+``` r
+c(1, 2, 3, 4, 5)
+```
+
+`c()` is the combine or concatenate function,
+
+Elements are accessed via a 1-based indices.
+
+```{r}
+vec = c(1, 2, 3, 4, 5)
+vec[1]
+```
+
+### Matrices
+
+2-dimensional *numerical* data.
+
+*Column major order*
+
+```{r}
+mat = matrix(1:9, nrow = 3, ncol = 3)
+mat
+```
+
+### Arrays
+
+Higher-dimensional *numerical* data structure.
+
+Column, row, z
+
+``` r
+array()
+```
+
+### Lists
+
+Lists allow for storing different data types in the same structure.
+
+Elements can be accessed via indices or key/value pairs.
+
+```{r}
+print("indices")
+
+list1 = list(37, 3.14, "Bob")
+
+list1[1]
+list1[2]
+list1[3]
+list1[1+1]
+
+print("key/value pairs")
+
+list2 = list(
+  "age" = 37,
+  "pi" = 3.14,
+  "name" = "Bob"
+)
+
+list2["name"]
+list2[3]
+list2$name
+```
+
+### DataFrames
+
+DataFrames have the same shape as matrices but each column can be of a different data type.
+
+```{r}
+df = data.frame(
+  names = c("Frodo", "Sam", "Pippin", "Merry"),
+  values = c(37, 42, 59, 8)
+)
+
+df
+```
+
+### Tibbles
+
+The tidyverse uses [Tibbles](https://tibble.tidyverse.org/) instead of DataFrames.
+
+Tibbles are enhanced DataFrames.
+
+> A tibble, or `tbl_df`, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced `print()` method which makes them easier to use with large datasets containing complex objects.
+>
+> If you are new to tibbles, the best place to start is the [tibbles chapter](https://r4ds.had.co.nz/tibbles.html) in R for data science.
+
+```{r}
+pacman::p_load("tidyverse")
+
+df = tibble(
+  names = c("Frodo", "Sam", "Pippin", "Merry"),
+  values = c(37, 42, 59, 8)
+)
+
+df
+```
+
+## Iteration
+
+* `for` loops: useful when you know how many times you need to iterate
+* `while` loops: useful when you don's or can't know how many times you will need to iterate (such as when performing an optimization)
+
+`while` loops execute while some condition holds true.
+
+```{r}
+counter <- 1
+
+while (counter <= 10) {
+  print(counter)
+  counter <- counter + 1
+}
+```
+
+`for` loops execute the same code over every element of a given set.
+
+```{r}
+for (number in 1:10) {
+  print(number)
+}
+```
+You will often store intermediate results in another data structure.
+
+```{r}
+cumulative_sums <- c()
+running_total <- 0
+for (number in 1:10) {
+  running_total = running_total + number
+  cumulative_sums <- c(cumulative_sums, running_total)
+}
+print(cumulative_sums)
+```
+
+`for` and `while` come in "base R." There are packages that add additional looping structures, such as [foreach](https://cran.r-project.org/web/packages/foreach/vignettes/foreach.html).

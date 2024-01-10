@@ -223,4 +223,17 @@ Not surprisingly, R has many ready-to-use functions for common statistical proce
 
 * `lm` performs linear regression
 * `glm` lets us create generalized linear models
+ 
+## Packages & Libraries
 
+Reusable code libraries.
+
+The [Comprehensive R Archive Network CRAN](https://cran.r-project.org/).
+
+`install.packages("name")` to install the package on your system
+
+`library("name")` to import the package into your project
+
+`pacman` to do it all ;)
+
+Also, `devtools::install_github("name")` to install from GitHub rather than CRAN.

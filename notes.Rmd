@@ -50,7 +50,7 @@ c(1, 2, 3, 4, 5)
 Elements are accessed via a 1-based indices.
 
 ```{r}
-vec = c(1, 2, 3, 4, 5)
+vec <- c(1, 2, 3, 4, 5)
 vec[1]
 ```
 
@@ -61,7 +61,7 @@ vec[1]
 *Column major order*
 
 ```{r}
-mat = matrix(1:9, nrow = 3, ncol = 3)
+mat <- matrix(1:9, nrow = 3, ncol = 3)
 mat
 ```
 
@@ -84,16 +84,16 @@ Elements can be accessed via indices or key/value pairs.
 ```{r}
 print("indices")
 
-list1 = list(37, 3.14, "Bob")
+list1 <- list(37, 3.14, "Bob")
 
 list1[1]
 list1[2]
 list1[3]
-list1[1+1]
+list1[1 + 1]
 
 print("key/value pairs")
 
-list2 = list(
+list2 <- list(
   "age" = 37,
   "pi" = 3.14,
   "name" = "Bob"
@@ -109,7 +109,7 @@ list2$name
 DataFrames have the same shape as matrices but each column can be of a different data type.
 
 ```{r}
-df = data.frame(
+df <- data.frame(
   names = c("Frodo", "Sam", "Pippin", "Merry"),
   values = c(37, 42, 59, 8)
 )
@@ -130,7 +130,7 @@ Tibbles are enhanced DataFrames.
 ```{r}
 pacman::p_load("tidyverse")
 
-df = tibble(
+df <- tibble(
   names = c("Frodo", "Sam", "Pippin", "Merry"),
   values = c(37, 42, 59, 8)
 )
@@ -140,8 +140,8 @@ df
 
 ## Iteration
 
-* `for` loops: useful when you know how many times you need to iterate
-* `while` loops: useful when you don's or can't know how many times you will need to iterate (such as when performing an optimization)
+-   `for` loops: useful when you know how many times you need to iterate
+-   `while` loops: useful when you don's or can't know how many times you will need to iterate (such as when performing an optimization)
 
 `while` loops execute while some condition holds true.
 
@@ -161,13 +161,14 @@ for (number in 1:10) {
   print(number)
 }
 ```
+
 You will often store intermediate results in another data structure.
 
 ```{r}
 cumulative_sums <- c()
 running_total <- 0
 for (number in 1:10) {
-  running_total = running_total + number
+  running_total <- running_total + number
   cumulative_sums <- c(cumulative_sums, running_total)
 }
 print(cumulative_sums)
@@ -177,7 +178,7 @@ print(cumulative_sums)
 
 ## Control Flow
 
-```r
+``` r
 if (condition) {
   statement(s)
 }
@@ -194,4 +195,32 @@ if (condition) {
   statement(s)
 }
 ```
+
+## Functions
+
+Reusable code.
+
+``` r
+analyze_data <- function(data) {
+  grp1_data = data$grp1
+  grp2_data = data$grp2
+  
+  ttest = t.test(grp1_data, grp2_data)
+  grp1_mean = mean(grp1_data)
+  grp2_mean = mean(grp2_data)
+  
+  was_significant = ttest["pvalue"] < 0.05
+  
+  return(list(grp1_mean, grp2_mean, was_significant))
+}
+
+results = analyze_data(new_data)
+```
+
+### R's built-in functions
+
+Not surprisingly, R has many ready-to-use functions for common statistical procedures. For example:
+
+* `lm` performs linear regression
+* `glm` lets us create generalized linear models
 

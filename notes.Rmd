@@ -435,3 +435,19 @@ Being able to store lists in a column is handy for simulations, for example. We 
 Wide data has more columns than rows and is easier for humans to read.
 
 Long data has more rows than columns and is better suited for the computer.
+
+The `tidyr` package contains many useful functions, some of which allow us to dhange the shape of our data (converting wide to long and vice versa).
+
+```r
+pivot_wider()
+
+pivot_longr()
+```
+
+## Visualization
+
+`ggplot` provides an intuitive system for building visualizations of our data.
+
+With `ggplot` we build plots in layers, first specifying what data we want to visualize, then what kinds of plot we want, etc. 
+
+We can add as many layers as we want to show our data.

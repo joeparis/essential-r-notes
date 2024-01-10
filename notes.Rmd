@@ -429,3 +429,9 @@ Being able to store lists in a column is handy for simulations, for example. We 
 ### The purr package
 
 `purr` gives us functions for working with list-columns. These functions all start with `map`. The output of a `map` function is a list-column.
+
+### Wide and long data
+
+Wide data has more columns than rows and is easier for humans to read.
+
+Long data has more rows than columns and is better suited for the computer.

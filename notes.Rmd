@@ -1,0 +1,36 @@
+---
+title: "Essential R to learn for statistics and data science in 2024"
+author: "Joe Paris"
+output: html_notebook
+---
+
+Essential R concepts and tidyverse programming paradigm.
+
+## Basic Data Types
+
+### Numeric data
+
+Integers or floating-point numbers
+
+### Character data
+
+Strings
+
+### Logical data
+
+Booleans
+
+### Factor data
+
+Looks like a string but underneath it's an integer.
+
+Conceptually similar to an enum.
+
+Used to represent categorical data.
+
+Map labels to "levels".
+
+|         |         |             |             |
+|---------|---------|-------------|-------------|
+| Labels: | Placebo | Treatment 1 | Treatment 2 |
+| Levels  | 1       | 2           | 3           |

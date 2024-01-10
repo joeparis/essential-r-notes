@@ -320,3 +320,106 @@ data <- read_csv("secret_data.csv")
 data <- read_tsv("secret_data.tsv")
 data <- read_delim("secret_data.csv", delim = ";)
 ```
+
+### tidyverse-adjacent packages
+
+`readxl` for reading Excel files (not part of the standard tidyverse package).
+
+``` r
+library("readxl")
+
+data <- read_xlsx("secret_data.xlsx")
+```
+
+These libraries read data into **tibles** as defined in the `tibble` package.
+
+## The pipe operator
+
+tidyverse is useful because it enables you to write clear, self-contained pipelines that cover the entire data science workflow.
+
+The pipe operator (`%>%`) allows you to pipe the output of one function into another.
+
+Almost all function in the tidyverse take in a tibble and produce a tibble.
+
+Two versions of the pipe operator that can be used in the tidyverse:
+
+-   `%>%` (older, from `magrittr` package)
+-   `|>` (from base R)
+
+``` r
+library("tidyverse")
+
+df = read_csv("secret_data.csv") %>%
+  select(column1, column2, column3) %>%
+  filter(column1 > 42)
+```
+
+### Tidying & transformation
+
+It's rare that data is immediately useful after being loaded.
+
+#### `select()`
+
+Provides many of the functions needed for cleaning data.
+
+``` r
+# select() lets us choose the columns we want to keep
+tidy_df <- df %>%
+  select(col1, col2, col3)  # dropping any other columns
+```
+
+#### `filter()`
+
+``` r
+# filter() lets us choose the rows we want to keep
+tidy_df <- df %>%
+  filter(col2 == "B")
+```
+
+#### mutate()
+
+``` r
+# mutate() lets us create new columns
+tidy_df <- df %>%
+  mutate(col5 <- col1 + 5)
+```
+
+### Working with strings
+
+`stringr` specializes in working with strings.
+
+### Working with dates and times
+
+`lubridate` specializes in working with dates and times.
+
+### Working with factor data
+
+`forcats` is designed to work on factor data.
+
+### List-columns
+
+Normally, columns in a tibble are vectors.
+
+| Col1 | Col2 | Col3  | Col4  |
+|------|------|-------|-------|
+| 1    | A    | TRUE  | Ana   |
+| 2    | A    | FALSE | Bob   |
+| 3    | B    | FALSE | Chris |
+| 4    | B    | TRUE  | Dawn  |
+| 5    | B    | TRUE  | EJ    |
+
+``` r
+df %>% pull(col1)
+
+[1] 1 2 3 4 5
+```
+
+We can also store lists in a given column. Columns that contain lists are called list-columns. This allows each cell in the column to contain heterogeneous data.
+
+| Col1 | Col2 | Col3  | Col4  | Col5          |
+|------|------|-------|-------|---------------|
+| 1    | A    | TRUE  | Ana   | c(1, 2, 3)    |
+| 2    | A    | FALSE | Bob   | c(4, 5, 6)    |
+| 3    | B    | FALSE | Chris | c(7, 8, 9)    |
+| 4    | B    | TRUE  | Dawn  | c(10, 11, 12) |
+| 5    | B    | TRUE  | EJ    | c(13, 14, 15) |

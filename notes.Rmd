@@ -451,3 +451,11 @@ pivot_longr()
 With `ggplot` we build plots in layers, first specifying what data we want to visualize, then what kinds of plot we want, etc. 
 
 We can add as many layers as we want to show our data.
+
+## Showing your work
+
+`rmarkdown` files are similar to Jupyter notebooks.
+
+### The shiny package
+
+`shiny` enables you to build interactive apps and dashboards from R code.

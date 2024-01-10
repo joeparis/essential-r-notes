@@ -262,9 +262,7 @@ dplyr is a grammar of data manipulation, providing a consistent set of verbs tha
 -   `summarise()` reduces multiple values down to a single summary.
 -   `arrange()` changes the ordering of the rows.
 
-These all combine naturally with [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) which allows you to perform any operation “by group”. You can learn more about them in [`vignette("dplyr")`](https://dplyr.tidyverse.org/articles/dplyr.html). As well as these single-table verbs, dplyr also provides a variety of two-table verbs, which you can learn about in [`vignette("two-table")`](https://dplyr.tidyverse.org/articles/two-table.html).
->
-> If you are new to dplyr, the best place to start is the [data transformation chapter](https://r4ds.hadley.nz/data-transform) in R for Data Science.
+These all combine naturally with [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) which allows you to perform any operation “by group”. You can learn more about them in [`vignette("dplyr")`](https://dplyr.tidyverse.org/articles/dplyr.html). As well as these single-table verbs, dplyr also provides a variety of two-table verbs, which you can learn about in [`vignette("two-table")`](https://dplyr.tidyverse.org/articles/two-table.html). \> \> If you are new to dplyr, the best place to start is the [data transformation chapter](https://r4ds.hadley.nz/data-transform) in R for Data Science.
 
 #### `lubridate`
 
@@ -282,10 +280,10 @@ stringr is built on top of [stringi](https://github.com/gagolews/stringi), which
 
 R uses **factors** to handle categorical variables, variables that have a fixed and known set of possible values. Factors are also helpful for reordering character vectors to improve display. The goal of the **forcats** package is to provide a suite of tools that solve common problems with factors, including changing the order of levels or the values. Some examples include:
 
-* `fct_reorder()`: Reordering a factor by another variable.
-* `fct_infreq()`: Reordering a factor by the frequency of values.
-* `fct_relevel()`: Changing the order of a factor by hand.
-* `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”.
+-   `fct_reorder()`: Reordering a factor by another variable.
+-   `fct_infreq()`: Reordering a factor by the frequency of values.
+-   `fct_relevel()`: Changing the order of a factor by hand.
+-   `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”.
 
 You can learn more about each of these in [`vignette("forcats")`](https://forcats.tidyverse.org/articles/forcats.html). If you’re new to factors, the best place to start is the [chapter on factors](https://r4ds.hadley.nz/factors.html) in R for Data Science.
 
@@ -293,9 +291,9 @@ You can learn more about each of these in [`vignette("forcats")`](https://forcat
 
 The goal of tidyr is to help you create **tidy data**. Tidy data is data where:
 
-1. Every column is a variable.
-1. Every row is an observation.
-1. Every cell is a single value.
+1.  Every column is a variable.
+2.  Every row is an observation.
+3.  Every cell is a single value.
 
 Tidy data describes a standard way of storing data that is used wherever possible throughout the [tidyverse.](https://www.tidyverse.org/) If you ensure that your data is tidy, you’ll spend less time fighting with the tools and more time working on your analysis. Learn more about tidy data in [`vignette("tidy-data")`](https://tidyr.tidyverse.org/articles/tidy-data.html).
 
@@ -307,6 +305,18 @@ purrr enhances R’s functional programming (FP) toolkit by providing a complete
 
 ggplot2 is a system for declaratively creating graphics, based on [The Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl). You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-### Data science workflow
+## Data science workflow
 
 ![](images/workflow.png)
+
+### Loading the data
+
+`readr` is often used here.
+
+``` r
+library("tidyverse")
+
+data <- read_csv("secret_data.csv")
+data <- read_tsv("secret_data.tsv")
+data <- read_delim("secret_data.csv", delim = ";)
+```

@@ -321,7 +321,7 @@ data <- read_tsv("secret_data.tsv")
 data <- read_delim("secret_data.csv", delim = ";)
 ```
 
-### tidyverse-adjacent packages
+#### tidyverse-adjacent packages
 
 `readxl` for reading Excel files (not part of the standard tidyverse package).
 
@@ -423,3 +423,9 @@ We can also store lists in a given column. Columns that contain lists are called
 | 3    | B    | FALSE | Chris | c(7, 8, 9)    |
 | 4    | B    | TRUE  | Dawn  | c(10, 11, 12) |
 | 5    | B    | TRUE  | EJ    | c(13, 14, 15) |
+
+Being able to store lists in a column is handy for simulations, for example. We can create simulated data sets and store each in a cell in the tibble. Using `mutate()` we can add a column to the table that analyzes the data in each row with a statistical model.
+
+
+
+

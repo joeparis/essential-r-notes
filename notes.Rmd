@@ -426,6 +426,6 @@ We can also store lists in a given column. Columns that contain lists are called
 
 Being able to store lists in a column is handy for simulations, for example. We can create simulated data sets and store each in a cell in the tibble. Using `mutate()` we can add a column to the table that analyzes the data in each row with a statistical model.
 
+### The purr package
 
-
-
+`purr` gives us functions for working with list-columns. These functions all start with `map`. The output of a `map` function is a list-column.

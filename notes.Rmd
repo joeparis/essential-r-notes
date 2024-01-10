@@ -309,7 +309,7 @@ ggplot2 is a system for declaratively creating graphics, based on [The Grammar o
 
 ![](images/workflow.png)
 
-### Loading the data
+## Loading the data
 
 `readr` is often used here.
 
@@ -321,7 +321,7 @@ data <- read_tsv("secret_data.tsv")
 data <- read_delim("secret_data.csv", delim = ";)
 ```
 
-#### tidyverse-adjacent packages
+### tidyverse-adjacent packages
 
 `readxl` for reading Excel files (not part of the standard tidyverse package).
 
@@ -354,11 +354,11 @@ df = read_csv("secret_data.csv") %>%
   filter(column1 > 42)
 ```
 
-### Tidying & transformation
+## Tidying & transformation
 
 It's rare that data is immediately useful after being loaded.
 
-#### `select()`
+### `select()`
 
 Provides many of the functions needed for cleaning data.
 
@@ -368,7 +368,7 @@ tidy_df <- df %>%
   select(col1, col2, col3)  # dropping any other columns
 ```
 
-#### `filter()`
+### `filter()`
 
 ``` r
 # filter() lets us choose the rows we want to keep
@@ -376,7 +376,7 @@ tidy_df <- df %>%
   filter(col2 == "B")
 ```
 
-#### mutate()
+### mutate()
 
 ``` r
 # mutate() lets us create new columns
